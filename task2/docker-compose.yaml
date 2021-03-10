@@ -1,0 +1,12 @@
+version: "3.5"
+
+services:
+
+  mysql:
+    image: mysql:8
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: mypass
+    volumes:
+      - ./_vk_db_creation.sql:/docker-entrypoint-initdb.d/_init.sql
