@@ -1,0 +1,20 @@
+version: "3.5"
+
+services:
+
+  mysql:
+    image: mysql:8
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: mypass
+      TZ: Europe/Moscow
+    volumes:
+      - ./mysql:/etc/mysql/conf.d
+      - ./shop.sql:/docker-entrypoint-initdb.d/shop.sql
+
+  redis:
+    image: redis
+
+  mongodb:
+    image: mongo
